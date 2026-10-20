@@ -1,0 +1,142 @@
+import './App.css'
+
+const videos = [
+  {
+    image: '/hq720.avif',
+    title: 'A first look at the newest Android phone',
+    channel: 'Pocket Tech',
+    views: '184K views',
+    age: '2 days ago',
+    duration: '4:18',
+    avatar: 'P',
+  },
+  {
+    image: '/hq720 (1).avif',
+    title: 'The internet trend that took over this week',
+    channel: 'Frame by Frame',
+    views: '1.4M views',
+    age: '1 week ago',
+    duration: '12:06',
+    avatar: 'F',
+  },
+  {
+    image: '/hq720 (2).avif',
+    title: 'I had to change one thing about my life',
+    channel: 'Aiden Talks',
+    views: '96K views',
+    age: '3 days ago',
+    duration: '9:42',
+    avatar: 'A',
+  },
+  {
+    image: '/hq720 (3).avif',
+    title: 'What happens when you use Vaseline before bed?',
+    channel: 'Dr. Alex Explains',
+    views: '640K views',
+    age: '5 days ago',
+    duration: '28:51',
+    avatar: 'D',
+  },
+  {
+    image: '/hq720 (4).avif',
+    title: "Don't Stop - a live music moment",
+    channel: 'After Hours',
+    views: '178K views',
+    age: '2 weeks ago',
+    duration: '16:20',
+    avatar: 'A',
+  },
+  {
+    image: '/hq720 (5).avif',
+    title: 'A simple guide to teaching yourself new skills',
+    channel: 'Build Your Own',
+    views: '52K views',
+    age: '1 day ago',
+    duration: '14:03',
+    avatar: 'B',
+  },
+  {
+    image: '/hq720_en.avif',
+    title: "A voice you won't forget: live studio session",
+    channel: 'Live Room',
+    views: '2.1M views',
+    age: '4 months ago',
+    duration: '6:37',
+    avatar: 'L',
+  },
+  {
+    image: '/videoframe_3199.png',
+    title: 'This is the phone I’ve been waiting for',
+    channel: 'Everyday Tech',
+    views: '412K views',
+    age: '6 days ago',
+    duration: '10:15',
+    avatar: 'E',
+  },
+  {
+    image: '/videoframe_4783.png',
+    title: 'Soft glam makeup for an evening out',
+    channel: 'Jules Beauty',
+    views: '83K views',
+    age: '3 weeks ago',
+    duration: '11:28',
+    avatar: 'J',
+  },
+]
+
+function App() {
+  return (
+    <div className="youtube-app">
+      <header className="topbar">
+        <div className="brand"><span className="brand-mark"><span /></span><span>YouTube</span></div>
+      </header>
+
+      <div className="page-layout">
+        <aside className="sidebar" aria-label="Sidebar">
+          <nav>
+            <div className="sidebar-section">
+              <ul className="sidebar-list">
+                <li className="sidebar-link active"><span aria-hidden="true">⌂</span>Home</li>
+                <li className="sidebar-link"><span aria-hidden="true">▷</span>Shorts</li>
+                <li className="sidebar-link"><span aria-hidden="true">▣</span>Subscriptions</li>
+              </ul>
+            </div>
+            <div className="sidebar-divider" />
+            <div className="sidebar-section">
+              <h2 className="sidebar-heading">You</h2>
+              <ul className="sidebar-list">
+                <li className="sidebar-link"><span aria-hidden="true">◷</span>History</li>
+                <li className="sidebar-link"><span aria-hidden="true">▤</span>Playlists</li>
+                <li className="sidebar-link"><span aria-hidden="true">♡</span>Liked videos</li>
+              </ul>
+            </div>
+          </nav>
+        </aside>
+
+        <main className="main-content" id="home">
+          <h1>Recommended videos</h1>
+          <section className="video-grid" aria-label="Video list">
+            {videos.map((video) => (
+              <article className="video-card" key={video.image}>
+                <div className="thumbnail-wrap">
+                  <img className="thumbnail" src={video.image} alt={video.title} />
+                  <span className="duration">{video.duration}</span>
+                </div>
+                <div className="video-info">
+                  <div className={`channel-avatar avatar-${video.avatar.toLowerCase()}`}>{video.avatar}</div>
+                  <div className="video-copy">
+                    <h2>{video.title}</h2>
+                    <p className="channel-name">{video.channel}<span className="verified">✓</span></p>
+                    <p>{video.views} <span className="dot">·</span>{video.age}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </section>
+        </main>
+      </div>
+    </div>
+  )
+}
+
+export default App
